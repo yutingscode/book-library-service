@@ -1,21 +1,33 @@
-package com.example.booklibrary;
+package com.example.booklibrary.domain;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
 
 @Entity
+@Table(name="books")
 public class Books {
 
-	private @Id String isbn;
+	@Id
+	@Column(name = "isbn")
+	private  String isbn;
+	
+	@Column(name = "book_title")
 	private String bookTitle;
+	
+	@Column(name = "author")
 	private String author;
+	
+	@Column(name = "published_year")
 	private int publishedYear;
 	
 	Books() {}
 	
-	Books(String isbn, String bookTitle, String author, int publishedYear) {
+	public Books(String isbn, String bookTitle, String author, int publishedYear) {
 		this.isbn = isbn; 
 		this.bookTitle = bookTitle;
 		this.author = author;

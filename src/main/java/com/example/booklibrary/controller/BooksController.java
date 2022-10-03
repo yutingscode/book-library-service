@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.booklibrary.Books;
 import com.example.booklibrary.exception.BookNotFoundException;
 import com.example.booklibrary.*;
+import com.example.booklibrary.domain.Books;
 import com.example.booklibrary.repository.BooksRepository;
 
 @RestController
