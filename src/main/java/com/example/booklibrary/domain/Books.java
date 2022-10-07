@@ -1,10 +1,12 @@
 package com.example.booklibrary.domain;
 
+import java.sql.Blob;
 import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 
@@ -14,7 +16,7 @@ public class Books {
 
 	@Id
 	@Column(name = "isbn")
-	private  String isbn;
+	private String isbn;
 	
 	@Column(name = "book_title")
 	private String bookTitle;
@@ -23,17 +25,22 @@ public class Books {
 	private String author;
 	
 	@Column(name = "published_year")
-	private int publishedYear;
+	private String publishedYear;
+	
+	@Lob
+	@Column(name = "image")
+	private String image;
 	
 	Books() {}
 	
-	public Books(String isbn, String bookTitle, String author, int publishedYear) {
+	public Books(String isbn, String bookTitle, String author, String publishedYear, String image) {
 		this.isbn = isbn; 
 		this.bookTitle = bookTitle;
 		this.author = author;
 		this.publishedYear = publishedYear;
+		this.image = image;
 	}
-	
+
 	public String getIsbn() {
 		return isbn;
 	}
@@ -58,26 +65,31 @@ public class Books {
 		this.author = author;
 	}
 
-	public int getPublishedYear() {
+	public String getPublishedYear() {
 		return publishedYear;
 	}
 
-	public void setPublishedYear(int publishedYear) {
+	public void setPublishedYear(String publishedYear) {
 		this.publishedYear = publishedYear;
 	}
 	
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
 	@Override
-	  public String toString() {
-	    return "Book{" + "isbn=" + this.isbn + ","
-	    		+ " bookTitle='" + this.bookTitle + '\'' 
-	    		+ ", author='" + this.author 
-	    		+ ", publishedYear='" + this.publishedYear
-	    		+ '\'' + '}';
-	  }
+	public String toString() {
+		return "Books [isbn=" + isbn + ", bookTitle=" + bookTitle + ", author=" + author + ", publishedYear="
+				+ publishedYear + ", image=" + image + "]";
+	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(author, bookTitle, isbn, publishedYear);
+		return Objects.hash(author, bookTitle, image, isbn, publishedYear);
 	}
 
 	@Override
@@ -90,6 +102,7 @@ public class Books {
 			return false;
 		Books other = (Books) obj;
 		return Objects.equals(author, other.author) && Objects.equals(bookTitle, other.bookTitle)
-				&& Objects.equals(isbn, other.isbn) && publishedYear == other.publishedYear;
+				&& Objects.equals(image, other.image) && Objects.equals(isbn, other.isbn)
+				&& Objects.equals(publishedYear, other.publishedYear);
 	}
 }

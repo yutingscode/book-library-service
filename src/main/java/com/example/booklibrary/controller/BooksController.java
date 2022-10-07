@@ -74,7 +74,7 @@ public class BooksController {
 	 }
 
 	  @DeleteMapping("/books/{isbn}")
-	  ResponseEntity<?> deleteEmployee(@PathVariable String isbn) {
+	  ResponseEntity<?> deleteBook(@PathVariable String isbn) {
 	    repository.deleteById(isbn);
 	    return ResponseEntity.noContent().build();
 	  }
