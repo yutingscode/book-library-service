@@ -63,6 +63,7 @@ public class BooksController {
 	    	  book.setBookTitle(newBook.getBookTitle());
 	    	  book.setAuthor(newBook.getAuthor());
 	    	  book.setPublishedYear(newBook.getPublishedYear());
+	    	  book.setImage(newBook.getImage());
 	        return repository.save(book);
 	      })
 	      .orElseGet(() -> {
