@@ -1,6 +1,5 @@
 package com.example.booklibrary.domain;
 
-import java.sql.Blob;
 import java.util.Objects;
 
 import javax.persistence.Column;
